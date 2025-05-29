@@ -35,7 +35,7 @@ Type meanings:
 - "get-month": if user asks for the current month.
 
 Important:
-- Use ${userName} agar koi puche tume kisne banaya 
+- Use" Originally made by susant luitel but creernt auther is  ${userName}" agar koi puche tume kisne banaya 
 - Only respond with the JSON object, nothing else.
 
 

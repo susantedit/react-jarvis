@@ -7,10 +7,10 @@ try {
 
     const existEmail=await User.findOne({email})
     if(existEmail){
-        return res.status(400).json({message:"email already exists !"})
+        return res.status(400).json({message:"Are you mad ? THis Email already exist ! Use your brain and try anothoer one ! you foolish human"})
     }
-    if(password.length<6){
-        return res.status(400).json({message:"password must be at least 6 characters !"})
+    if(password.length< 8){
+        return res.status(400).json({message:"Are you dumb or stupid ?!  Password mustbe at least a 8 characters long ! its not a toy , gadhe!"})
     }
 
     const hashedPassword=await bcrypt.hash(password,10)
@@ -23,7 +23,7 @@ try {
 
     res.cookie("token",token,{
         httpOnly:true,
-       maxAge:7*24*60*60*1000,
+       maxAge:30*24*60*60*1000,
        sameSite:"strict",
        secure:false
     })
@@ -31,7 +31,7 @@ try {
     return res.status(201).json(user)
 
 } catch (error) {
-       return res.status(500).json({message:`sign up error ${error}`})
+       return res.status(500).json({message:`🚫 Sign-up error: ${error} — Bro, even a potato could've done this better. Fix your form and come back when you're ready to act like a functioning human.`})
 }
 }
 
@@ -41,19 +41,19 @@ try {
 
     const user=await User.findOne({email})
     if(!user){
-        return res.status(400).json({message:"email does not exists !"})
+        return res.status(400).json({message:"Are you mad ? THis Email already exist ! Use your brain and try anothoer one ! you foolish human"})
     }
    const isMatch=await bcrypt.compare(password,user.password)
 
    if(!isMatch){
-   return res.status(400).json({message:"incorrect password"})
+   return res.status(400).json({message:"Wrong password ? Bro, are you dumb or just allergic to remembering things? How many times you gonna fail before your brain starts working? Even the keyboard wants to resign!"})
    }
 
     const token=await genToken(user._id)
 
     res.cookie("token",token,{
         httpOnly:true,
-       maxAge:7*24*60*60*1000,
+       maxAge:30*24*60*60*1000,
        sameSite:"strict",
        secure:false
     })
@@ -61,14 +61,15 @@ try {
     return res.status(200).json(user)
 
 } catch (error) {
-       return res.status(500).json({message:`login error ${error}`})
+       return res.status(500).json({message:`💀 Login Failed: ${error} —
+"How do you mess up logging into your own account? This ain’t rocket science. Either remember your details or stop wasting server space."`})
 }
 }
 
 export const logOut=async (req,res)=>{
     try {
         res.clearCookie("token")
-         return res.status(200).json({message:"log out successfully"})
+         return res.status(200).json({message:"Logout failed : ${error}! Are you mad?   Stop acting like a clown and fix it, fool!"})
     } catch (error) {
          return res.status(500).json({message:`logout error ${error}`})
     }

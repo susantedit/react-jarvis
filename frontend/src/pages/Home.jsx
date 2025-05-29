@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { userDataContext } from '../context/userContext'
+import { userDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import aiImg from "../assets/ai.gif"
 import { CgMenuRight } from "react-icons/cg";
-import { RxCross1 } from "react-icons/rx";
+import { TbXboxX } from "react-icons/tb";
+
 import userImg from "../assets/user.gif"
 function Home() {
   const {userData,serverUrl,setUserData,getGeminiResponse}=useContext(userDataContext)
@@ -178,7 +179,7 @@ useEffect(() => {
 
 
     const greeting = new SpeechSynthesisUtterance(`Hello ${userData.name}, what can I help you with?`);
-    greeting.lang = 'hi-IN';
+    greeting.lang = ' hi-IN';
    
     window.speechSynthesis.speak(greeting);
  
@@ -196,10 +197,10 @@ useEffect(() => {
 
 
   return (
-    <div className='w-full h-[100vh] bg-gradient-to-t from-[black] to-[#02023d] flex justify-center items-center flex-col gap-[15px]'>
-      <CgMenuRight className='lg:hidden text-white absolute top-[20px] right-[20px] w-[25px] h-[25px]' onClick={()=>setHam(true)}/>
+    <div className='w-full h-[100vh] bg-gradient-to-t from-[black] to-[#02023d] flex justify-center items-center flex-col gap-[15px] overflow-hidden'>
+      <CgMenuRight className='lg:hidden text-white absolute top-[20px] right-[20px] w-[35px] h-[35px]' onClick={()=>setHam(true)}/>
       <div className={`absolute lg:hidden top-0 w-full h-full bg-[#00000053] backdrop-blur-lg p-[20px] flex flex-col gap-[20px] items-start ${ham?"translate-x-0":"translate-x-full"} transition-transform`}>
- <RxCross1 className=' text-white absolute top-[20px] right-[20px] w-[25px] h-[25px]' onClick={()=>setHam(false)}/>
+ <TbXboxX className=' text-white absolute top-[20px] right-[20px] w-[35px] h-[35px]' onClick={()=>setHam(false)}/>
  <button className='min-w-[150px] h-[60px]  text-black font-semibold   bg-white rounded-full cursor-pointer text-[19px] ' onClick={handleLogOut}>Log Out</button>
       <button className='min-w-[150px] h-[60px]  text-black font-semibold  bg-white  rounded-full cursor-pointer text-[19px] px-[20px] py-[10px] ' onClick={()=>navigate("/customize")}>Customize your Assistant</button>
 
