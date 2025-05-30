@@ -21,7 +21,7 @@ import image18 from "../assets/image18.PNG"
 import image22 from "../assets/image22.PNG"
 import image23 from "../assets/image23.PNG"
 import image19 from "../assets/image19.jpg"
-import image20 from "../assets/with.png"
+
 import image21 from "../assets/image21.jpg"
 import { RiImageCircleAiLine } from "react-icons/ri";
 import { userDataContext } from '../context/UserContext'
@@ -61,7 +61,7 @@ setFrontendImage(URL.createObjectURL(file))
               <Card image={image14}/>
               <Card image={image17}/>
               <Card image={image18}/>
-              <Card image={image20}/>
+             
               <Card image={image21}/>
               <Card image={image22}/>
               <Card image={image23}/>
